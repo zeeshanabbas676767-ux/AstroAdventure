@@ -1,0 +1,72 @@
+﻿@model AstroAdventure.Models.tblUser
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+
+    /* Base button style */
+    .btn {
+        display: inline-block;
+        padding: 10px 22px;
+        font-size: 15px;
+        font-weight: 600;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+    /* Info (Back) button */
+    .btn-outline-info {
+        background: linear-gradient(135deg, #17a2b8, #20c997);
+    }
+
+        .btn-outline-info:hover {
+            background: linear-gradient(135deg, #138496, #17a2b8);
+            color: white
+        }
+</style>
+<h2 style="text-align:center">User</h2>
+<div>
+    <dl class="row g-3 mt-3">
+        <dt class="col-sm-3"><strong>Image</strong></dt>
+        <dd class="col-sm-9">
+            @if (!string.IsNullOrEmpty(Model.ProfileImagePath))
+            {
+                <img src="@Url.Content(Model.ProfileImagePath)"
+                     class="img-fluid rounded shadow-sm"
+                     style="max-width: 100px; height: auto;" />
+            }
+            else
+            {
+                <span class="text-muted">No Profile Picture</span>
+            }
+        </dd>
+        <dt class="col-sm-3"><strong>Full_Name</strong></dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.FullName)</dd>
+        <hr />
+        <dt class="col-sm-3 mt-4"><strong>Email</strong></dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Email)</dd>
+        <hr />
+        <dt class="col-sm-3 mt-4"><strong>User_Name</strong></dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.UserName)</dd>
+        <hr />
+        <dt class="col-sm-3"><strong>Password_Hash</strong></dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.PasswordHash)</dd>
+        <hr />
+        <dt class="col-sm-3"><strong>IsActive</strong></dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.IsActive)</dd>
+        <hr />
+        <dt class="col-sm-3"><strong>Address</strong></dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Address)</dd>
+        <hr />
+        <dt class="col-sm-3 mt-4"><strong>CreatedAt</strong></dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.CreatedAt)</dd>
+        <hr />
+    </dl>
+    <div class="mt-6">
+        @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-outline-info" })
+    </div>
+</div>

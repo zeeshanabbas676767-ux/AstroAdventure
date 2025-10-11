@@ -1,0 +1,66 @@
+﻿@model AstroAdventure.Models.tblUser
+@{
+    ViewBag.Title = "Sign Up";
+}
+<style>
+    body {
+        background-image: url('/Content/Images/earth space.jpeg');
+        background-size: cover
+    }
+    </style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" id="main-font-link">
+<!-- [Tabler Icons] https://tablericons.com -->
+<!-- [Feather Icons] https://feathericons.com -->
+<!-- [Font Awesome Icons] https://fontawesome.com/icons -->
+<!-- [Material Icons] https://fonts.google.com/icons -->
+<link href="~/Content/Images/_authentication.css" rel="stylesheet" />
+<h1 style="text-align:center;">Sign Up</h1>
+<div class="auth-main mt-4" style="width:500px;height:650px;margin-left:280px;">
+    <div class="auth-wrapper v1">
+        <div class="card my-0">
+            <div class="card-body">
+                @using (Html.BeginForm("SignUp", "Account", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" name="FullName" class="form-control" placeholder="Enter Your Full Name" required />
+                        @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="text" name="Email" class="form-control" placeholder="Enter Your Email" required />
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label">User Name</label>
+                        <input type="text" name="UserName" class="form-control" placeholder="Enter User Name" required />
+                        @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label">Address</label>
+                        <input type="text" name="Address" class="form-control" placeholder="Enter Your Address" required />
+                        @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" name="PasswordHash" class="form-control" placeholder="Enter Your Password" required />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label">Confirm Password</label>
+                        <input type="password" name="passwordConfirm" class="form-control" placeholder="Enter Your Password Again" required />
+                    </div>
+
+                    <div class="d-grid mt-4">
+                        <button type="submit" class="btn btn-primary">Create Account</button>
+                    </div>
+                }
+
+                <div class="text-center mt-3">
+                    <a href="@Url.Action("Login", "Account")">Already have an account? Login here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

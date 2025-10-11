@@ -1,0 +1,144 @@
+﻿@model AstroAdventure.Models.tblUser
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+
+    /* Style dropdown box */
+    select {
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+        padding: 8px 12px;
+        border-radius: 8px;
+        width: 100%;
+    }
+
+        /* Style dropdown options */
+        select option {
+            background-color: #1e293b; /* dark slate */
+            color: #ffffff;
+        }
+
+            /* Highlight on hover */
+            select option:hover {
+                background-color: #4f46e5; /* indigo */
+                color: #ffffff;
+            }
+    /* Base button style */
+    .btn {
+        display: inline-block;
+        padding: 10px 22px;
+        font-size: 15px;
+        font-weight: 600;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Primary (Create) button */
+    .btn-outline-primary {
+        background: linear-gradient(135deg, #007bff, #00b4ff);
+    }
+
+        .btn-outline-primary:hover {
+            background: linear-gradient(135deg, #0056b3, #0088cc);
+        }
+
+    /* Secondary (Clear / Cancel) button */
+    .btn-outline-secondary {
+        background: linear-gradient(135deg, #6c757d, #9199a1);
+    }
+
+        .btn-outline-secondary:hover {
+            background: linear-gradient(135deg, #565e64, #7a8288);
+        }
+
+    /* Info (Back) button */
+    .btn-outline-info {
+        background: linear-gradient(135deg, #17a2b8, #20c997);
+    }
+
+        .btn-outline-info:hover {
+            background: linear-gradient(135deg, #138496, #17a2b8);
+            color: white
+        }
+
+    /* Optional: Add subtle glowing hover effect */
+    .btn:hover {
+        filter: brightness(1.1);
+    }
+
+    /* Button layout */
+    .mt-6.flex {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+    }
+</style>
+<h2 style="text-align:center">User</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.UserID)
+
+    <div class="row g-3 mt-3">
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.ProfileImagePath, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.ProfileImagePath, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ProfileImagePath, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.PasswordHash, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.PasswordHash, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PasswordHash, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-3 mt-5">
+            @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="checkbox">
+                @Html.EditorFor(model => model.IsActive)
+                @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-3 mt-5">
+            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+        </div>
+        @*<div class="col-md-3 mt-5">
+            @Html.LabelFor(model => model.CreatedAt, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.CreatedAt, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CreatedAt, "", new { @class = "text-danger" })
+        </div>*@
+    </div>
+    <div class="mt-6 flex">
+        <input type="submit" value="Save" class="btn btn-outline-primary" style="cursor:pointer" />
+        @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-outline-info" })
+    </div>
+</div>
+}
+

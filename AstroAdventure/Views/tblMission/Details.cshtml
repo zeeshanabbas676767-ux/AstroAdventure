@@ -1,0 +1,53 @@
+﻿@model AstroAdventure.Models.tblMission
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+
+    /* Base button style */
+    .btn {
+        display: inline-block;
+        padding: 10px 22px;
+        font-size: 15px;
+        font-weight: 600;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+    /* Info (Back) button */
+    .btn-outline-info {
+        background: linear-gradient(135deg, #17a2b8, #20c997);
+    }
+
+        .btn-outline-info:hover {
+            background: linear-gradient(135deg, #138496, #17a2b8);
+            color: white
+        }
+</style>
+<h2 style="text-align:center">Missions</h2>
+<div>
+    <dl class="row g-3 mt-3">
+        <dt class="col-sm-3"><strong>Name</strong></dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.tblPlanet.Name)</dd>
+        <hr />
+        <dt class="col-sm-3 mt-4"><strong>Mission_Name</strong></dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.MissionName)</dd>
+        <hr />
+        <dt class="col-sm-3 mt-4"><strong>Launch_Date</strong></dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.LaunchDate)</dd>
+        <hr />
+        <dt class="col-sm-3"><strong>End_Date</strong></dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.EndDate)</dd>
+        <hr />
+        <dt class="col-sm-3 mt-4"><strong>Objective</strong></dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Objective)</dd>
+        <hr />
+    </dl>
+    <div class="mt-6">
+        @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-outline-info" })
+    </div>
+</div>

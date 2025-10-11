@@ -1,0 +1,12 @@
+﻿<connectionStrings>
+  <!-- 
+    Copy this file to ConnectionStrings.config
+    and update it with your real connection string.
+  -->
+  <add name="AstroSpace"
+       connectionString="data source=DESKTOP-ETV4NT9\SQLEXPRESS;
+       Initial Catalog=AstroSpaceDB;Integrated Security=True;
+       MultipleActiveResultSets=True;"
+       providerName="System.Data.SqlClient" />
+</connectionStrings>
+ 

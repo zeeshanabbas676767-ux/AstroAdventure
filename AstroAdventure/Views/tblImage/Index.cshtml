@@ -1,0 +1,132 @@
+﻿@model IEnumerable<AstroAdventure.Models.tblImage>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+
+    /* Last column sticky background */
+    .table th:last-child,
+    .table td:last-child {
+        position: sticky;
+        right: 0;
+        z-index: 2;
+        text-align: center;
+    }
+
+    /* Flexbox centering for action buttons */
+    .action-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px; /* spacing between icons */
+    }
+
+        /* Icon button look */
+        .action-buttons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08); /* subtle circle background */
+            transition: background 0.3s ease;
+        }
+
+            .action-buttons a:hover {
+                background: rgba(255,255,255,0.15);
+            }
+
+            /* Specific colors for icons */
+            .action-buttons a.edit i {
+                color: dodgerblue;
+            }
+
+            .action-buttons a.details i {
+                color: white;
+            }
+
+            .action-buttons a.delete i {
+                color: red;
+            }
+
+
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th {
+        text-align: left;
+        padding: 12px;
+        color: #a5b4fc; /* soft indigo */
+        font-weight: 600;
+    }
+
+    /*    tr:hover td {
+        background: rgba(255,255,255,0.05);
+        transition: background-color 0.3s ease;
+    }*/
+    .table-dark tr:hover td {
+        background-color: black;
+        transition: background-color 0.3s ease;
+    }
+
+    .table-dark td {
+        padding: 12px;
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+        color: #e5e7eb;
+    }
+</style>
+<h2 style="text-align:center">Image</h2>
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-outline-primary", style = "color:white;font-weight:600" })
+</p>
+<div class="container-fluid" style="overflow:auto;">
+    <table class="table table-dark">
+        <tr>
+            <th>Article</th>
+            <th>Planet</th>
+            <th>Star</th>
+            <th>Image</th>
+            <th>Alt Text</th>
+            <th>Actions</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(item.tblArticle != null ? item.tblArticle.Title : "-")</td>
+                <td>@(item.tblPlanet != null ? item.tblPlanet.Name : "-")</td>
+                <td>@(item.tblStar != null ? item.tblStar.Name : "-")</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.Url))
+                    {
+                        <img src="@Url.Content(item.Url)" alt="@item.AltText"
+                             style="width: 120px; height: auto; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);" />
+                    }
+                    else
+                    {
+                        <span class="text-muted">No Image</span>
+                    }
+                </td>
+                <td>@item.AltText</td>
+                <td>
+                    <div class="action-buttons">
+                        <a href="@Url.Action("Edit", new { id = item.ImageID })" class="edit" title="Edit">
+                            <i class="fa fa-edit" style="transform:scale(1.2);"></i>
+                        </a>
+                        <a href="@Url.Action("Details", new { id = item.ImageID })" class="details" title="Details">
+                            <i class="fa fa-file-alt" style="transform:scale(1.2);"></i>
+                        </a>
+                        <a href="@Url.Action("Delete", new { id = item.ImageID })" class="delete" title="Delete">
+                            <i class="fa fa-trash" style="transform:scale(1.2);"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

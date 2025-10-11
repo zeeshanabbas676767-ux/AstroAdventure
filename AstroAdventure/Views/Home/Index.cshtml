@@ -1,0 +1,178 @@
+﻿<style>
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.4);
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card p {
+            padding: 15px 20px;
+            font-size: 0.95rem;
+            color: #cccccc;
+            text-align: justify;
+        }
+
+    @@media (max-width: 768px) {
+        .card img {
+            height: 180px;
+        }
+    }
+</style>
+<h4 style="text-align:center">Welcome, @Session["FullName"] </h4>
+
+@*<h2 style="text-align:center">In</h2>
+    <img style="width:600px;height:80px;margin-left:250px" src="~/Content/Images/astroadventure.png" /><br />*@
+<!-- ✅ Modern Space Slider -->
+<div id="carouselExampleDark" class="carousel carousel-fade slide mt-5" data-bs-ride="carousel"style="width:700px;height:410px;margin-left:210px">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    </div>
+
+    <div class="carousel-inner">
+        <!-- ✅ First Slide -->
+        <div class="carousel-item active" data-bs-interval="7000">
+            <img src="~/Content/Images/04Galaxy.jpg"
+                 class="d-block w-100"
+                 alt="JWST1"
+                 style="object-fit: cover; object-position: center;">
+
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-3">
+                <p style="color:white">
+                    This is the Sombrero Galaxy, also known as Messier 104 (M104). It is a spiral
+                    galaxy located approximately 30 million light-years from Earth in the constellation Virgo.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ✅ Second Slide -->
+        <div class="carousel-item" data-bs-interval="7000">
+            <img src="~/Content/Images/black-hole-vortex.jpg"
+                 class="d-block w-100"
+                 alt="JWST1"
+                 style="object-fit: cover; object-position: center; height: 395px">
+
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-3">
+                <p style="color:white">
+                    Black holes are regions in space where an enormous amount of mass is packed into a tiny volume.
+                    This creates a gravitational pull so strong that not even light can escape.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ✅ Third Slide -->
+        <div class="carousel-item" data-bs-interval="7000">
+            <img src="~/Content/Images/whirlpool.jpg"
+                 class="d-block w-100"
+                 alt="JWST1"
+                 style="object-fit: cover; object-position: center;height:395px">
+
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-3">
+                @*<h5>Milky Way Galaxy</h5>*@
+                <p style="color:white;">
+                    Whirlpool Galaxy, also known as Messier 51 (M51) or NGC 5194, a grand-design spiral galaxy.
+                    It is located approximately 31 million light-years away from Earth.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ✅ Forth Slide -->
+        <div class="carousel-item" data-bs-interval="7000">
+            <img src="~/Content/Images/k2-18b.jpg"
+                 class="d-block w-100"
+                 alt="k2-18b"
+                 style="object-fit: cover; object-position: center;height:395px">
+
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-3">
+                @*<h5>Milky Way Galaxy</h5>*@
+                <p style="color:white;">
+                    The exoplanet K2-18 b, which orbits a red dwarf star named K2-18.
+                    K2-18 b is located about 120 light-years from Earth in the constellation Leo.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ✅ Navigation Buttons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+
+<div class="gallery">
+    <div class="card">
+        <img src="~/Content/Images/JWST4.jpeg" alt="Nebula Stars">
+        <p>The Southern Ring Nebula, also known as NGC 3132 or the Eight-Burst Nebula. It is a planetary nebula located about 
+        2,000 light-years away in the constellation Vela. The nebula is a huge shell of gas and dust ejected from a dying star at the end of its life. </p>
+    </div>
+    <div class="card">
+        <img src="~/Content/Images/galaxy.jpg" alt="Milky Way">
+        <p>This is the Milky Way galaxy, our home galaxy. This type of galaxy has a central bar-shaped structure of bright stars, from which the spiral arms extend. The bar plays a role in the
+        galaxy's evolution by funneling gas towards the center, where new stars are born. Our solar system is located in one of the spiral arms, about halfway from the galactic center. </p>
+    </div>
+
+    <div class="card">
+        <img src="~/Content/Images/Hubble-nebula.jpeg" alt="Galaxy View">
+        <p>
+            The star cluster Westerlund 2, captured by the Hubble Space Telescope to celebrate its 25th anniversary in 2015.
+            Westerlund 2 is a massive cluster of about 3,000 stars, located in the Milky Way galaxy, approximately 20,000 light-years away in the constellation Carina.
+        </p>
+    </div>
+
+    <div class="card">
+        <img src="~/Content/Images/JWST1.jpeg" alt="Nebula">
+        <p>
+            Nicknamed the "Cosmic Cliffs," was captured by the James Webb Space Telescope (JWST).
+            It shows the edge of a star-forming region in the Carina Nebula, located approximately 7,600 light-years away from Earth.
+        </p>
+    </div>
+
+    <div class="card">
+        <img src="~/Content/Images/JWST2.jpeg" alt="Big Bang Era">
+        <p>
+            Galaxy cluster SMACS 0723 as it appeared 4.6 billion years ago. This cluster is so massive that its powerful gravitational
+            field acts as a gravitational lens, bending and magnifying the light from even more distant galaxies located behind it.
+        </p>
+    </div>
+
+    <div class="card">
+        <img src="~/Content/Images/JWST-Nebula.jpg" alt="Star Formation">
+        <p>
+            The Pillars of Creation are towering columns of interstellar gas and dust within the Eagle Nebula, located about 6,500 light-years from Earth.
+            This image, first captured by the Hubble Space Telescope in 1995, was later re-imaged by the James Webb Space Telescope in 2022, providing a new, more detailed view.
+        </p>
+    </div>
+</div>

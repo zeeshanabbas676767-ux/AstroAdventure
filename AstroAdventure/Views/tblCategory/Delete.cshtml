@@ -1,0 +1,53 @@
+﻿@model AstroAdventure.Models.tblCategory
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+
+    /* Base button style */
+    .btn {
+        display: inline-block;
+        padding: 10px 22px;
+        font-size: 15px;
+        font-weight: 600;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+    /* Info (Back) button */
+    .btn-outline-info {
+        background: linear-gradient(135deg, #17a2b8, #20c997);
+    }
+
+        .btn-outline-info:hover {
+            background: linear-gradient(135deg, #138496, #17a2b8);
+            color: white
+        }
+
+    .btn-outline-danger {
+        background: linear-gradient(135deg, #f71804, #c94620);
+    }
+
+        .btn-outline-danger:hover {
+            background: linear-gradient(135deg, #963613, #b81717);
+            color: white
+        }
+</style>
+<h2 style="text-align:center">Category</h2>
+<h3 style="color:red;text-align:center"><i class="fa-solid fa-triangle-exclamation mt-5" style="color:yellow"></i>  Warning! <small style="color:white"> This will be permanently delete, Do you want to do this?</small></h3>
+<div style="height:200px">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="mt-lg-5" style="text-align:center">
+            <input type="submit" value="Delete" class="btn btn-outline-danger" />
+            @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-outline-info", style = "margin-left:10px" })
+        </div>
+    }
+</div>
