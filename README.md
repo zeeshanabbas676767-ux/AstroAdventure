@@ -33,3 +33,18 @@ It also includes **user authentication (login/signup)**, profile management, and
 
 ## 🗂️ Project Structure
 
+## 🖼️ Screenshots
+
+### 🔹 Login Page
+(11.10.2025_19.58.36_REC.png)
+
+### 🔹 Home Page
+(11.10.2025_20.01.04_REC.png)
+
+### 🔹 Profile Picture and Authentication
+(11.10.2025_20.01.28_REC.png)
+
+### 🔹 list of all User that have been log or sign up
+(11.10.2025_20.02.01_REC.png)
+
+
