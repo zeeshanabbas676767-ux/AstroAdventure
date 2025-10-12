@@ -33,7 +33,7 @@ It also includes **user authentication (login/signup)**, profile management, and
 
 ## 🗂️ Project Structure
 
-## 🖼️ Screenshots
+## 🖼️ Screenshots   Note: If you want to see screenshot of project then go to Screenshot folder and open and see screenshot.
 
 ### 🔹 Login Page
 (11.10.2025_19.58.36_REC.png)
